@@ -1,0 +1,24 @@
+==실행시 헤더파일===================================
+
+8-1번,8-2번(unweighted graph) : <Ad_List.h>, <Ad_Matrix.h>, [Graph_Queue_Link], [Array_Ops.h], [Generic Func.h]
+8-3번,8-4번(weighted graph) : <Ad_Matrix3.h>, [Graph_Queue_Link], [Array_Ops.h], [Generic Func.h]
+
+
+==Graph 구현에 사용된 헤더파일==========================
+
+<Ad_List.h> : [Graph_Queue_Link], [Generic Func.h]
+<Ad_Matrix.h>, <Ad_Matrix.h>: [Graph_Queue_Link], [Array_Ops.h], [Generic Func.h]
+
+     Array_Ops.h :  void*를 element로 하는 Array에 대한 다양한 operation
+                            1)  SearchArray: key를 주어진 compare함수를 이용해서 Array내에서 찾는 함수
+			찾으면 return index
+			못 찾으면 처음으로 찾는 자신보다 큰 값의 index에 대해 return -index-1 
+                            2) AddArray : 배열 내에 요소 추가, 중간에 들어가면 덮어쓰지 않고 뒤로 밀고 넣는다
+                            3) DeleteArray : 배열 내 요소 제거, 중간에서 제거하면 뒤의 요소로 채워준다
+                                                        뒤의 요소를 당기고 가장 마지막의 요소에 대해서는 주어진 initialize함수로 초기화시킨다.
+                            4) DeleteArray_2D : 2차원 배열의 idx번 행과 열을 지운다, 당기고 나서 마지막 행과 열을 initialize함수로 초기화시킨다.
+     Generic_Func.h : Generic구현에 편리한 함수들, GINT / GCHAR / GSTR 등의 상수를 이용한다. 
+                            1) Generic_Print : type상수가 주어지면 해당하는 print함수(void* 요소 1개 출력)를 반환
+                            2) Generic_Compare : type상수가 주어지면 해당하는 비교함수를 반환
+                            3) Null_data :  type상수가 주어지면 해당하는 초기화함수(void*에 각 type에 해당하는 calloc으로 메모리 할당)를 반환
+
